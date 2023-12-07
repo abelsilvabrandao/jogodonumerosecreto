@@ -138,3 +138,30 @@ button:disabled {
         padding: 1rem
     }
 }
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .container__botao {
+        font-size: 14px;
+    }
+
+    .texto__paragrafo {
+        font-size: 18px;
+    }
+
+    .container__input {
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .container__informacoes {
+        padding: 1rem;
+    }
+}
