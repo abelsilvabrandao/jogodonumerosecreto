@@ -34,9 +34,9 @@ function verificarChute() {
 
         if (tentativas >= 1 && tentativas <= 5) {
             mensagemTentativas = "Você é foda! Parabéns!";
-        } else if (tentativas > 10) {
+        } else if (tentativas >= 10) {
             mensagemTentativas += " Demorou em? Você precisa melhorar, se esforce mais!";
-        } else if (tentativas > 15) {
+        } else if (tentativas >= 15) {
             mensagemTentativas += " Você é fraco! Te desafio a começar denovo e acertar!";
         }
 
