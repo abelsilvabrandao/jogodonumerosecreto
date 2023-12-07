@@ -34,10 +34,12 @@ function verificarChute() {
 
         if (tentativas >= 1 && tentativas <= 5) {
             mensagemTentativas = "Você é foda! Parabéns!";
-        } else if (tentativas >= 10) {
+        } if (tentativas >= 6 && tentativas <= 10) {
             mensagemTentativas += " Demorou em? Você precisa melhorar, se esforce mais!";
-        } else if (tentativas >= 15) {
-            mensagemTentativas += " Você é fraco! Te desafio a começar denovo e acertar!";
+        } if (tentativas >= 11 && tentativas <= 19) {
+            mensagemTentativas += " Xii é retardado! Tenta mais vacição!";    
+        } else if (tentativas >= 20) {
+            mensagemTentativas += " Desista você é burro pra caralho! Vai descansar a mente chega por hoje!";
         }
 
         exibirTextoNaTela('h1', 'Acertou!');
