@@ -37,7 +37,7 @@ function verificarChute() {
         } if (tentativas >= 6 && tentativas <= 10) {
             mensagemTentativas += " Demorou em? Você precisa melhorar, se esforce mais!";
         } if (tentativas >= 11 && tentativas <= 19) {
-            mensagemTentativas += " Xii é retardado! Tenta mais vacição!";    
+            mensagemTentativas += " Xii é retardado! Tenta mais uma vez vacilão!";    
         } else if (tentativas >= 20) {
             mensagemTentativas += " Desista você é burro pra caralho! Vai descansar a mente chega por hoje!";
         }
