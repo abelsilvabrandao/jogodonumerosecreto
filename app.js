@@ -1,3 +1,7 @@
+function isSmallScreen() {
+    return window.innerWidth <= 768;
+}
+
 let listaDeNumerosSorteados = [];
 let numeroLimite = 1000;
 let numeroSecreto = gerarNumeroAleatorio();
@@ -6,29 +10,35 @@ let tentativas = 1;
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
-    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.0});
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
 }
 
 function exibirMensagemInicial() {
-    exibirTextoNaTela('h1', 'Jogo Número Secreto');
+    exibirTextoNaTela('h1', 'Jogo número secreto');
     exibirTextoNaTela('p', 'Escolha um número entre 1 e 1000');
 }
 
 exibirMensagemInicial();
 
+document.querySelector('input').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        verificarChute();
+    }
+});
+
 function verificarChute() {
-    let chute = document.querySelector('input').value;
+    let chute = document.querySelector('.container__input').value;
 
     if (chute == numeroSecreto) {
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
 
         if (tentativas >= 1 && tentativas <= 5) {
-            mensagemTentativas = "Você é Barril! Parabéns!";
-        } else if (tentativas >= 10) {
-            mensagemTentativas += " Demorou em? tenta denovo e não vacila!";
-        } else if (tentativas >= 15) {
-            mensagemTentativas += " Que merda! Te desafio a começar denovo e acertar!";
+            mensagemTentativas = "Você é foda! Parabéns!";
+        } else if (tentativas > 10) {
+            mensagemTentativas += " Demorou em? Você precisa melhorar, se esforce mais!";
+        } else if (tentativas > 15) {
+            mensagemTentativas += " Você é fraco! Te desafio a começar denovo e acertar!";
         }
 
         exibirTextoNaTela('h1', 'Acertou!');
@@ -73,9 +83,6 @@ function reiniciarJogo() {
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', true)
 }
-
-
-
 
 
 
