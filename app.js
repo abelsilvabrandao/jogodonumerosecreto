@@ -18,11 +18,20 @@ exibirMensagemInicial();
 
 function verificarChute() {
     let chute = document.querySelector('input').value;
-    
+
     if (chute == numeroSecreto) {
-        exibirTextoNaTela('h1', 'Acertou!');
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
+
+        if (tentativas >= 1 && tentativas <= 5) {
+            mensagemTentativas = "Você é Barril! Parabéns!";
+        } else if (tentativas >= 10) {
+            mensagemTentativas += " Demorou em? tenta denovo e não vacila!";
+        } else if (tentativas >= 15) {
+            mensagemTentativas += " Que merda! Te desafio a começar denovo e acertar!";
+        }
+
+        exibirTextoNaTela('h1', 'Acertou!');
         exibirTextoNaTela('p', mensagemTentativas);
         document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
